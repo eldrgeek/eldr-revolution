@@ -1,5 +1,5 @@
 {
-  "name": "create-react-app",
+  "name": "revolution1x1prime",
   "version": "4.0.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,9 @@
     "clsx": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-iframe": "1.8.0",
     "react-scripts": "latest"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
