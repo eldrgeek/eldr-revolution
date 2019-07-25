@@ -3,13 +3,11 @@ import ReactPlayer from "react-player";
 import Typography from "@material-ui/core/Typography";
 
 const url =
-  "https://www.youtube.com/embed/o507bg_K6hs?rel=0;&autoplay=1;&mute=1";
-
+  // "https://www.youtube.com/embed/o507bg_K6hs?rel=0;&autoplay=1;&mute=1";
+  "https://vimeo.com/291764638";
 const RevolutionVideo = () => {
   const [message, setMessage] = React.useState("no message");
-  const Message = () => {
-    return message;
-  };
+
   return (
     <React.Fragment>
       {/* <Message /> */}
