@@ -1,30 +1,56 @@
 import React from "react";
-import Iframe from "react-iframe";
+import ReactPlayer from "react-player";
+import Typography from "@material-ui/core/Typography";
+
+const url =
+  "https://www.youtube.com/embed/o507bg_K6hs?rel=0;&autoplay=1;&mute=1";
 
 const RevolutionVideo = () => {
+  const [message, setMessage] = React.useState("no message");
+  const Message = () => {
+    return message;
+  };
   return (
-    <Iframe
-      src="https://www.youtube.com/embed/o507bg_K6hs?rel=0;&autoplay=1;&mute=1"
-      width="450px"
-      height="450px"
-      id="myId"
-      className="myClassname"
-      display="initial"
-      position="relative"
-      autoplay
-      encrypted-media
-      gyroscope
-      allowFullScreen
-    />
-
-    // <iframe
-    //   width="560"
-    //   height="315"
-    //   src="https://www.youtube.com/embed/o507bg_K6hs"
-    //   frameborder="0"
-    //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    //   allowfullscreen
-    // />
+    <React.Fragment>
+      {/* <Message /> */}
+      {message === "ended" ? (
+        <Typography align="center" variant="h5" component="h1" gutterBottom>
+          Join the revolution
+        </Typography>
+      ) : (
+        <React.Fragment>
+          {message != "playing" ? "Click to hear our anthem" : ""}
+          <RevolutionPlayer
+            message={message}
+            onStart={() => setMessage("starting")}
+            onEnded={() => setMessage("ended")}
+            onPlay={() => setMessage("playing")}
+            onPaused={() => setMessage("paused")}
+          />
+        </React.Fragment>
+      )}
+    </React.Fragment>
+  );
+};
+const RevolutionPlayer = props => {
+  return (
+    <React.Fragment>
+      <ReactPlayer
+        url={url}
+        config={{
+          youtube: {
+            playerVars: {
+              controls: "1",
+              showinfo: 1
+            }
+          },
+          facebook: {
+            appId: "12345"
+          }
+        }}
+        {...props}
+      />
+    </React.Fragment>
   );
 };
 export default RevolutionVideo;
