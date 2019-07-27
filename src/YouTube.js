@@ -41,12 +41,12 @@ const RevolutionVideo = props => {
         </Typography>
       ) : (
         <React.Fragment>
-          {message !== "playing" ? (
+          {message !== "ended" ? (
             <Typography align="center" variant="h5" component="h1" gutterBottom>
               <button className={classes.linkButton} onClick={startPlaying}>
                 Play our anthem
               </button>{" "}
-              or{" "}
+              and{" "}
               <button
                 className={classes.linkButton}
                 onClick={() => setShowLyrics(true)}
@@ -58,7 +58,6 @@ const RevolutionVideo = props => {
             ""
           )}
           <RevolutionPlayer
-            showLyrics={showLyrics}
             message={message}
             playing={playing}
             onStart={() => setMessage("starting")}
