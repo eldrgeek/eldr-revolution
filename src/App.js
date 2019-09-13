@@ -19,10 +19,13 @@ function MadeWithLove() {
 
 export default function App() {
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
+    <Container style={{ background: "black" }} maxWidth="sm">
+      <Box style={{ background: "black" }} my={1}>
         <Typography align="left" variant="h4" component="h1" gutterBottom>
-          The Revolution is coming!
+          The Revolution is near you.
+        </Typography>
+        <Typography align="left" variant="h4" component="h1" gutterBottom>
+          The Revolution is coming near you.
         </Typography>
         {/* <ProTip /> */}
         <YouTube />

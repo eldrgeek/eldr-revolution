@@ -13,6 +13,14 @@ const useStyles = makeStyles(theme => ({
     display: "inline",
     margin: "0",
     padding: "0"
+  },
+  still: {
+    position: "absolute",
+    width: "80%"
+  },
+
+  player: {
+    width: "80%"
   }
 
   // linkButton:hover,
@@ -21,18 +29,24 @@ const useStyles = makeStyles(theme => ({
   // }
 }));
 const url =
-  // "https://www.youtube.com/embed/o507bg_K6hs?rel=0;&autoplay=1;&mute=1";
-  // "https://vimeo.com/291764638";
-  "https://vimeo.com/352059225/a37fc065a3";
+  "https://www.youtube.com/embed/o507bg_K6hs?rel=0;&autoplay=1;&mute=1";
+// "https://vimeo.com/291764638";
+// "https://vimeo.com/352059225/a37fc065a3";
+// "https://vimeo.com/355880816"
 const RevolutionVideo = props => {
   const classes = useStyles();
   const [message, setMessage] = React.useState("no message");
   const [playing, setPlaying] = React.useState(false);
   const [showLyrics, setShowLyrics] = React.useState(false);
+  const [visible, setVisible] = React.useState("visible");
 
   const startPlaying = () => {
     setPlaying(true);
   };
+  setTimeout(() => {
+    let width = document.querySelector("iframe").style.width; //.document.body.scrollWidth + "px"
+    console.log("width", width);
+  }, 1000);
   return (
     <React.Fragment>
       {/* <Message /> */}
@@ -58,14 +72,26 @@ const RevolutionVideo = props => {
           ) : (
             ""
           )}
-          <RevolutionPlayer
-            message={message}
-            playing={playing}
-            onStart={() => setMessage("starting")}
-            onEnded={() => setMessage("ended")}
-            onPlay={() => setMessage("playing")}
-            onPause={() => setMessage("paused")}
-          />
+          <div>
+            <img
+              style={{ visibility: visible, width: "100px" }}
+              id="still"
+              className={classes.still}
+              alt="revolution 1x1"
+              src="revolution still.jpg"
+            />
+            <RevolutionPlayer
+              id="player"
+              className={classes.player}
+              message={message}
+              playing={playing}
+              width={window.innerWidth + "px"}
+              onStart={() => setVisible("hidden")}
+              onEnded={() => setMessage("ended")}
+              onPlay={() => setMessage("playing")}
+              onPause={() => setVisible("visible")}
+            />
+          </div>
           {showLyrics ? (
             <Iframe
               url="https://www.noelpaulstookey.com/14-12.html"
