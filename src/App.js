@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import YouTube from "./YouTube";
 
 const useStyles = makeStyles(theme => ({
-  
   still: {
     // position: "absolute",
     width: "100%"
@@ -15,8 +14,6 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     textAlign: "center"
   }
-
- 
 }));
 // import Link from "@material-ui/core/Link";
 // import ProTip from "./ProTip";
@@ -33,7 +30,7 @@ function MadeWithLove() {
 }
 
 export default function App() {
-   const classes = useStyles();
+  const classes = useStyles();
   return (
     <Container style={{ background: "black" }} maxWidth="sm">
       <Box style={{ background: "black" }} my={1}>
@@ -44,16 +41,22 @@ export default function App() {
           The Revolution is coming near you.
         </Typography>
         <div>
-        <img
-              style={{ visibility: true}}
-              id="still"
-              className={classes.still}
-              alt="revolution 1x1"
-              src="revolution still.jpg"
-            />
+          <img
+            style={{ visibility: true }}
+            id="still"
+            className={classes.still}
+            alt="revolution 1x1"
+            src="revolution still.jpg"
+          />
         </div>
-        <Typography  className={classes.text} align="left" variant="h6" component="h1" gutterBottom>
-          coming soon
+        <Typography
+          className={classes.text}
+          align="left"
+          variant="h6"
+          component="h1"
+          gutterBottom
+        >
+          more to come
         </Typography>
         {/* <ProTip /> */}
         {/* <YouTube /> */}
