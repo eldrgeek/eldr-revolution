@@ -56,7 +56,7 @@ export default function App() {
           component="h1"
           gutterBottom
         >
-          coming soons
+          coming soon
         </Typography>
         {/* <ProTip /> */}
         {/* <YouTube /> */}
